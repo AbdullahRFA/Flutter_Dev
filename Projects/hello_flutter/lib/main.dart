@@ -54,6 +54,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      if (counter > 0) {
+        counter--;
+      }
+    });
+  }
+
   void _resetCounter() {
     setState(() {
       counter = 0;
@@ -103,6 +111,14 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                 onPressed: _incrementCounter,
                 child: const Text('Increment Counter'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: _decrementCounter,
+                child: const Text('Decrement Counter'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                ),
               ),
               const SizedBox(height: 10),
               ElevatedButton(

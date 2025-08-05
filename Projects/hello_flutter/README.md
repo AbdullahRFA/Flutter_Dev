@@ -1,16 +1,62 @@
-# hello_flutter
 
-A new Flutter project.
+Hello Flutter
 
-## Getting Started
+A beginner Flutter project demonstrating basic UI components and interactions.
 
-This project is a starting point for a Flutter application.
+🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+This simple Flutter app includes:
+•	✅ A counter that increments and decrements with button presses
+•	✅ A text input field where users can type messages
+•	✅ A submit button that prints the typed text
+•	✅ Ability to pick an image from the gallery and display it in the app
+•	✅ Dynamic UI updates with setState()
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+📱 Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<!-- You can add screenshots here later -->
+
+
+Coming soon…
+
+🛠 Getting Started
+
+If this is your first time with Flutter, follow these resources to set up your environment:
+•	Write your first Flutter app
+•	Flutter Cookbook
+•	Flutter Documentation
+
+🔧 Run Locally
+
+To run this project on your local machine:
+
+git clone https://github.com/yourusername/hello_flutter.git
+cd hello_flutter
+flutter pub get
+flutter run
+
+Make sure you have an emulator or physical device connected.
+
+📂 Project Structure
+
+/lib
+└── main.dart       # Main entry point
+/assets
+└── (optional)      # Store any local images or files here
+
+📦 Dependencies
+
+Make sure these packages are added in your pubspec.yaml:
+
+dependencies:
+flutter:
+sdk: flutter
+image_picker: ^1.0.0
+
+🤝 Contributing
+
+Feel free to fork the repo and suggest improvements or add new features.
+
+📄 License
+
+This project is licensed under the MIT License.
