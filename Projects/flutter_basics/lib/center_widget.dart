@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const MyHomePage(title: 'Container'),
+      home: const MyHomePage(title: 'Center Widget'),
     );
   }
 }
@@ -31,15 +31,28 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title,
+          style: TextStyle(
+            fontSize: 25,
+
+          ),
+        ),
       ),
       body: Center(
         child: Container(
-          width: 100,
-          height: 100,
-          color: Colors.limeAccent,
-          child: Text("Hello Developer"),
-
+          height: 200,
+          width: 300,
+          color: Colors.deepPurple,
+          child: Center(
+            child: Text("This is center container",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              backgroundColor: Colors.black,
+            ),
+            ),
+          ),
         ),
       ),
     );
