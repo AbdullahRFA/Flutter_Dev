@@ -15,6 +15,8 @@ class FlutterApp extends StatelessWidget{
       //   useMaterial3: false,
       //   primarySwatch: Colors.blue
       // ),
+      
+      // If you want all AppBars in your app to have the same color:
       theme: ThemeData(
         useMaterial3: true, // you can keep Material 3 if you like
         appBarTheme: const AppBarTheme(
