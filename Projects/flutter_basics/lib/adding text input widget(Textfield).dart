@@ -49,6 +49,9 @@ class _DashBoardScreen extends State<DashBoardScreen>{
       email = "Email: ${emailText.text}";
       password_text = "Password: ${password.text}";
       phone = "Phone: ${phone_number.text}";
+      emailText.clear();
+      password.clear();
+      phone_number.clear();
     });
   }
   @override
@@ -92,9 +95,15 @@ class _DashBoardScreen extends State<DashBoardScreen>{
                   // ),
                   labelText: "Enter your email"
                 ),
+                textInputAction: TextInputAction.search,
+                onSubmitted: (value){
+                  showDataOnScreen();
+                },
+
               ),
               SizedBox(height: 10,),
               TextField(
+
                 controller: password,
                 obscureText: true,
                 // obscuringCharacter: "*",
@@ -126,6 +135,10 @@ class _DashBoardScreen extends State<DashBoardScreen>{
                     // ),
                     labelText: "Enter your password"
                 ),
+                textInputAction: TextInputAction.search,
+                onSubmitted: (value){
+                  showDataOnScreen();
+                },
               ),
               SizedBox(height: 10,),
               TextField(
@@ -166,6 +179,10 @@ class _DashBoardScreen extends State<DashBoardScreen>{
                     // ),
                     labelText: "Enter your phone number"
                 ),
+                textInputAction: TextInputAction.search,
+                onSubmitted: (value){
+                  showDataOnScreen();
+                },
               ),
               SizedBox(height: 10,),
               ElevatedButton(onPressed: (){
@@ -177,6 +194,8 @@ class _DashBoardScreen extends State<DashBoardScreen>{
               },
                   child: Text("Show inserted data")
               ),
+
+
               if(email.isNotEmpty & password_text.isNotEmpty & phone.isNotEmpty)
                 Column(
                   children: [
