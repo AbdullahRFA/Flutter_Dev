@@ -47,10 +47,43 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         backgroundColor: Colors.yellow,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GridView.count(
-            crossAxisCount: 4,
+      // body: Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: GridView.count(
+      //       crossAxisCount: 3,
+      //       crossAxisSpacing: 12,
+      //       mainAxisSpacing: 12,
+      //       children: [
+      //         Container(
+      //           color: colorArray[0],
+      //         ), Container(
+      //           color: colorArray[1],
+      //         ), Container(
+      //           color: colorArray[2],
+      //         ), Container(
+      //           color: colorArray[3],
+      //         ), Container(
+      //           color: colorArray[4],
+      //         ), Container(
+      //           color: colorArray[5],
+      //         ), Container(
+      //           color: colorArray[6],
+      //         ), Container(
+      //           color: colorArray[3],
+      //         ),Container(
+      //           color: colorArray[5],
+      //         ), Container(
+      //           color: colorArray[6],
+      //         ), Container(
+      //           color: colorArray[4],
+      //         ),
+      //       ],
+      //   ),
+      // )
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.extent(
+            maxCrossAxisExtent: 150,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
             children: [
@@ -78,9 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: colorArray[4],
               ),
             ],
-        ),
-      )
-
+          ),
+        )
     );
   }
 }
