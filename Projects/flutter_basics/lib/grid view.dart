@@ -80,39 +80,71 @@ class _MyHomePageState extends State<MyHomePage> {
       //       ],
       //   ),
       // )
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GridView.extent(
-            maxCrossAxisExtent: 150,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            children: [
-              Container(
-                color: colorArray[0],
-              ), Container(
-                color: colorArray[1],
-              ), Container(
-                color: colorArray[2],
-              ), Container(
-                color: colorArray[3],
-              ), Container(
-                color: colorArray[4],
-              ), Container(
-                color: colorArray[5],
-              ), Container(
-                color: colorArray[6],
-              ), Container(
-                color: colorArray[3],
-              ),Container(
-                color: colorArray[5],
-              ), Container(
-                color: colorArray[6],
-              ), Container(
-                color: colorArray[4],
-              ),
-            ],
+      //   body: Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: GridView.extent(
+      //       maxCrossAxisExtent: 150,
+      //       crossAxisSpacing: 12,
+      //       mainAxisSpacing: 12,
+      //       children: [
+      //         Container(
+      //           color: colorArray[0],
+      //         ), Container(
+      //           color: colorArray[1],
+      //         ), Container(
+      //           color: colorArray[2],
+      //         ), Container(
+      //           color: colorArray[3],
+      //         ), Container(
+      //           color: colorArray[4],
+      //         ), Container(
+      //           color: colorArray[5],
+      //         ), Container(
+      //           color: colorArray[6],
+      //         ), Container(
+      //           color: colorArray[3],
+      //         ),Container(
+      //           color: colorArray[5],
+      //         ), Container(
+      //           color: colorArray[6],
+      //         ), Container(
+      //           color: colorArray[4],
+      //         ),
+      //       ],
+      //     ),
+      //   )
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //   crossAxisCount: 3, // number of columns
+          //   crossAxisSpacing: 10.0, // space between columns
+          //   mainAxisSpacing: 10.0, // space between rows
+          //   childAspectRatio: 1, // width/height ratio
+          // ),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 100,
+            crossAxisSpacing: 10.0, // space between columns
+            mainAxisSpacing: 10.0, // space between rows
+            childAspectRatio: 1, // width/height ratio
           ),
-        )
+          itemCount: colorArray.length, // use colorArray length
+          itemBuilder: (context, index) {
+            return Container(
+              color: colorArray[index],
+              child: Center(
+                child: Text(
+                  "Box $index",
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
