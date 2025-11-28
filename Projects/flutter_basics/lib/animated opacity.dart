@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(),
+      home: const MyHomePage(title: 'Container'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  final String title;
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var myOpacity = 1.0;
+  bool flag = true;
+
+  var btn = "Close";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedOpacity(
+                opacity: myOpacity,
+                duration: Duration(seconds: 2),
+              curve: Curves.bounceIn,
+              child: Container(
+                width: 200,
+                height: 100,
+                color: Colors.grey,
+
+
+              ),
+
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(onPressed: (){
+              setState(() {
+                if(flag){
+                  myOpacity = 0.0;
+                  flag = false;
+                  btn = "Open";
+                }
+                else{
+                  myOpacity = 1.0;
+                  flag = true;
+                  btn = "Close";
+                }
+              });
+            },
+                child: Text(btn))
+          ],
+        )
+      ),
+    );
+  }
+}
