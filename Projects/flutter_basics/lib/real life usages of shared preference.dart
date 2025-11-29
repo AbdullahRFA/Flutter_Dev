@@ -3,7 +3,6 @@ import 'package:flutter_basics/profile_page_for_shared_pref.dart';
 import 'package:flutter_basics/splashScreenForSharedPref.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -31,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -40,17 +38,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _loadInfo() async {
-
     var pref = await SharedPreferences.getInstance();
     var email = pref.getString("email") ?? "";
     var password = pref.getString("password") ?? "";
 
-    if (email.isNotEmpty && password.isNotEmpty){
-      Navigator.push(context, MaterialPageRoute(builder: (context){
-        return Profile();
-      }));
+    if (email.isNotEmpty && password.isNotEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return Profile();
+          },
+        ),
+      );
     }
-
   }
 
   var emailController = TextEditingController();
@@ -59,10 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Colors.blue,
-      ),
+      appBar: AppBar(title: Text(widget.title), backgroundColor: Colors.blue),
       body: Center(
         child: Container(
           height: 300,
@@ -81,13 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   hintText: "Enter your email",
                   suffixIcon: Icon(Icons.email),
                   filled: true,
-
                 ),
-
               ),
-              SizedBox(
-                height: 30,
-              ),
+              SizedBox(height: 30),
               TextField(
                 controller: passwordController,
                 decoration: InputDecoration(
@@ -98,38 +92,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   hintText: "Enter your password",
                   suffixIcon: Icon(Icons.password),
                   filled: true,
-
                 ),
-
               ),
-              SizedBox(
-                  height: 30,
-              ),
-              ElevatedButton(onPressed: () async {
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () async {
+                  var email = emailController.text.toString();
+                  var password = passwordController.text.toString();
+                  // print("Email: $email");
+                  // print("Password: $password");
 
-                var email = emailController.text.toString();
-                var password = passwordController.text.toString();
-                // print("Email: $email");
-                // print("Password: $password");
+                  var pref = await SharedPreferences.getInstance();
+                  pref.setString("email", email);
+                  pref.setString("password", password);
 
-                var pref =await SharedPreferences.getInstance();
-                pref.setString("email", email);
-                pref.setString("password", password);
-
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                  return Profile();
-                }));
-
-
-              }, child: Text("Login"),
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Profile();
+                      },
+                    ),
+                  );
+                },
+                child: Text("Login"),
               ),
             ],
           ),
-
         ),
       ),
     );
   }
-
-
 }
